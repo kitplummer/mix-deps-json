@@ -9,6 +9,11 @@ defmodule Encoder do
     |> libraries
     |> Poison.encode!()
   end
+  
+  def mixfile_map(dependencies) do
+    dependencies
+    |> libraries
+  end
 
   defp libraries(dependencies) do
     dependencies |> Enum.reduce(%{}, &library/2)
